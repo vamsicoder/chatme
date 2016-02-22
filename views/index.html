@@ -3,9 +3,8 @@
    <head>
     <title>Chat Application</title>
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-    <script src="js/chat.js"></script>
+    <link rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css">
+
   </head>
   <body> 
     <ul id="messages"></ul>
@@ -13,5 +12,31 @@
     <form id="form" action="" onsubmit="return submitfunction();" > 
       <input type="hidden" id="user" value="" /><input id="m" autocomplete="off" onkeyup="notifyTyping();" placeholder="Type yor message here.." /><input type="submit" id="button" value="Send"/> 
     </form>
+
+    <div class="modal" id="userModal" data-backdrop="static">
+      <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Name of User
+                    <button type="button" class="close fui-cross" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+
+                <div class="modal-body">
+                    Enter User name to start <input type="text" id="userName"></input>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-default" onclick="saveUserName()"> Save </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Scripts to load -->
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js"></script>></script>
+
+
+    <script src="js/chat.js"></script>
   </body>
 </html>

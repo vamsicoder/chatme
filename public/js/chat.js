@@ -34,10 +34,22 @@ function submitfunction() {
 	return false;
 }
 
-$(document).ready(function() {
-	var name = makeid();
-	$("#user").val(name);
+function emitJoin(name) {
+	$("#user").val(name || '');
 	socket.emit("chatMessage", "System", "<b>" + name + " has joined discussion </b>");
+}
+
+function saveUserName() {
+	var name = $("#userName").val();
+	if(name === "") {
+		return;
+	}
+	emitJoin(name);
+	$("#userModal").modal("hide");
+}
+
+$(document).ready(function() {
+	$("#userModal").modal("show");
 })
 
 function makeid() {

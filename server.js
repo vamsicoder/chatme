@@ -29,6 +29,6 @@ io.on('connection', function(socket){
 });
 
 
-app.listen(port, function() {
+http.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });

@@ -3,7 +3,8 @@
   "description": "Our sample Node to Heroku app",
   "version": "1.0.0",
   "engines": {
-    "node": "4.1.1"
+    "node": "4.1.1",
+    "npm": "1.3.x"
   },
   "main": "server.js",
   "scripts": {

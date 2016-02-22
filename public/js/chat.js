@@ -19,6 +19,7 @@ function submitfunction() {
 function emitJoin(name) {
 	$("#user").val(name || '');
 	socket.emit("chatMessage", "System", "<b>" + name + " has joined discussion </b>");
+	socket.emit("addUser", {"name": name, id: makeid()});
 }
 
 function saveUserName() {
@@ -35,11 +36,5 @@ $(document).ready(function() {
 })
 
 function makeid() {
-  var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
- 
-  for( var i=0; i < 5; i++ ) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return text;
+  return Math.random().toString(36).substr(7);
 }

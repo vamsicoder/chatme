@@ -1,4 +1,5 @@
 var socket = io();
+var online_users = [];
 
 socket.on("notifyUser",function(user) {
 	var me = $("#user").val();
@@ -17,4 +18,9 @@ socket.on("chatMessage", function(from, msg) {
 	var color = (from === me) ? "green": "#009afd";
 	var from = (from === me) ? "Me": from;
 	$('#messages').append('<li><b style="color:' + color + '">' + from + '</b>: ' + msg + '</li>');
+});
+
+socket.on("addUser", function(user) {
+	online_users.push(user);
+	console.log(online_users);
 });

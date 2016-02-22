@@ -26,6 +26,9 @@ io.on('connection', function(socket){
   socket.on('notifyUser', function(user){
     io.emit('notifyUser', user);
   });
+  socket.on("addUser", function(user) {
+    socket.broadcast.emit("addUser", user);
+  });
 });
 
 

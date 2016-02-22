@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 var path = require('path');
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
@@ -13,7 +13,9 @@ app.use(express.static(__dirname + '/public'));
 // set the home page route
 app.get('/', function(req, res) {
 
-	res.render('index');
+	var express=require('express');
+  app.use(express.static(path.join(__dirname)));
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 // Register events on socket connection
